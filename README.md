@@ -24,7 +24,6 @@ Both tasks are implemented in a single Google Colab-ready Jupyter notebook.
 ```
 Edge_Computing_Assignment04/
 ├── Assignment04_KD_NAS.ipynb    # Main notebook (Q1 + Q2)
-├── Assignment 4.pdf             # Original assignment specification
 ├── requirements.txt             # Python dependencies
 ├── .gitignore                   # Git ignore rules
 └── README.md                    # This file
