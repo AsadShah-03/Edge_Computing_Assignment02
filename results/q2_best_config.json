@@ -1,0 +1,11 @@
+{
+  "best_config": {
+    "num_layers": 5,
+    "channels": 96,
+    "kernel_sizes": 3,
+    "use_depthwise": false,
+    "activation": "silu",
+    "input_resolution": 24
+  },
+  "best_score": 69.67712382211248
+}

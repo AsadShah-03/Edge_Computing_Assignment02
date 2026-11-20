@@ -192,6 +192,40 @@ All outputs are generated at runtime:
 
 ---
 
+## Experimental Results
+
+### Question 1: Knowledge Distillation Results (CIFAR-100)
+
+| Model | Baseline Acc (%) | KD Acc (%) | Gain (%) |
+|---|---|---|---|
+| MobileNetV2 | 52.18 | 50.26 | -1.92 |
+| SqueezeNet | 35.08 | 41.31 | +6.23 |
+| EfficientNet-Lite0 | 64.32 | 55.24 | -9.08 |
+
+### Question 2: Discovered NAS Architecture (CIFAR-10)
+
+- **Best Configuration:**
+  - Layers: 5
+  - Channels: 96
+  - Kernel Size: 3
+  - Depthwise Separable: False
+  - Activation: SiLU
+  - Input Resolution: 24x24
+- **Final Test Accuracy:** 91.57%
+- **CPU Inference Latency:** 2.106 ms
+- **ONNX Model Size:** 0.04 MB
+
+### Unified Benchmark Summary
+
+| Task | Model | Dataset | Test Acc (%) | CPU Latency (ms) | ONNX Size (MB) |
+|---|---|---|---|---|---|
+| Q1-KD | MobileNetV2 | CIFAR-100 | 50.26 | 8.591 | 0.24 |
+| Q1-KD | SqueezeNet | CIFAR-100 | 41.31 | 4.877 | 0.11 |
+| Q1-KD | EfficientNetLite0 | CIFAR-100 | 55.24 | 8.728 | 0.15 |
+| Q2-NAS | NAS Best Model | CIFAR-10 | 91.57 | 2.106 | 0.04 |
+
+---
+
 ## References
 
 1. Hinton, G., Vinyals, O., Dean, J. (2015). *Distilling the Knowledge in a Neural Network.* NIPS Deep Learning Workshop.

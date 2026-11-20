@@ -1,0 +1,4 @@
+Model,ONNX Path,Size (MB),Avg CPU Latency (ms)
+MobileNetV2,onnx_models/student_kd_MobileNetV2.onnx,0.23,1.87
+SqueezeNet,onnx_models/student_kd_SqueezeNet.onnx,0.11,7.83
+EfficientNetLite0,onnx_models/student_kd_EfficientNetLite0.onnx,0.15,3.428

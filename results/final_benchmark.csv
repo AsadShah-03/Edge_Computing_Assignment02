@@ -1,0 +1,5 @@
+Task,Model,Dataset,Test Acc (%),CPU Latency (ms),ONNX Size (MB)
+Q1-KD,MobileNetV2,CIFAR-100,50.26,8.591,0.24
+Q1-KD,SqueezeNet,CIFAR-100,41.31,4.877,0.11
+Q1-KD,EfficientNetLite0,CIFAR-100,55.24,8.728,0.15
+Q2-NAS,NAS Best,CIFAR-10,91.57,2.106,0.04

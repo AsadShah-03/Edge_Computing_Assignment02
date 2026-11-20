@@ -1,0 +1,905 @@
+
+pytorch2.14.1+cu130:»ã
+œ
+input
+stem.0.weight
+stem.0.weight_biasgetitemnode_Conv_117"Conv*
+group *
+pads@@@@ *
+auto_pad"NOTSET *
+strides@@ *
+	dilations@@ *
+kernel_shape@@ JÒ
+	namespaceÄ: __main__.NASNet/stem: torch.nn.modules.container.Sequential/stem.1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJ¾
+pkg.torch.onnx.class_hierarchy›['__main__.NASNet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']J 
+pkg.torch.onnx.fx_node…%_native_batch_norm_legit_no_training : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d, %p_stem_1_weight, %p_stem_1_bias, %b_stem_1_running_mean, %b_stem_1_running_var, 0.1, 1e-05), kwargs = {})J\
+pkg.torch.onnx.name_scopes>['', 'stem', 'stem.1', '_native_batch_norm_legit_no_training']Jí
+pkg.torch.onnx.stack_traceÎFile "/tmp/ipykernel_404/943492814.py", line 102, in forward
+    x = self.stem(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/batchnorm.py", line 210, in forward
+    return F.batch_norm(
+Ÿ
+getitemval_15node_Sigmoid_15"SigmoidJ‹
+	namespace~: __main__.NASNet/stem: torch.nn.modules.container.Sequential/stem.2: torch.nn.modules.activation.SiLU/silu: aten.silu.defaultJ—
+pkg.torch.onnx.class_hierarchyu['__main__.NASNet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']J„
+pkg.torch.onnx.fx_nodej%silu : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%getitem,), kwargs = {})J<
+pkg.torch.onnx.name_scopes['', 'stem', 'stem.2', 'silu']J„
+pkg.torch.onnx.stack_traceåFile "/tmp/ipykernel_404/943492814.py", line 102, in forward
+    x = self.stem(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/activation.py", line 476, in forward
+    return F.silu(input, inplace=self.inplace)
+›
+getitem
+val_15silu	node_silu"MulJ‹
+	namespace~: __main__.NASNet/stem: torch.nn.modules.container.Sequential/stem.2: torch.nn.modules.activation.SiLU/silu: aten.silu.defaultJ—
+pkg.torch.onnx.class_hierarchyu['__main__.NASNet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']J„
+pkg.torch.onnx.fx_nodej%silu : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%getitem,), kwargs = {})J<
+pkg.torch.onnx.name_scopes['', 'stem', 'stem.2', 'silu']J„
+pkg.torch.onnx.stack_traceåFile "/tmp/ipykernel_404/943492814.py", line 102, in forward
+    x = self.stem(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/activation.py", line 476, in forward
+    return F.silu(input, inplace=self.inplace)
+ü
+silu
+body.0.block.0.weight
+body.0.block.0.weight_bias	getitem_3node_Conv_119"Conv*
+group@ *
+pads@@@@ *
+auto_pad"NOTSET *
+strides@@ *
+	dilations@@ *
+kernel_shape@@ J·
+	namespace©: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.0: __main__.DepthwiseSepConvBlock/body.0.block: torch.nn.modules.container.Sequential/body.0.block.1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_1: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJ‰
+pkg.torch.onnx.class_hierarchyæ['__main__.NASNet', 'torch.nn.modules.container.Sequential', '__main__.DepthwiseSepConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÄ
+pkg.torch.onnx.fx_node©%_native_batch_norm_legit_no_training_1 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_1, %p_body_0_block_1_weight, %p_body_0_block_1_bias, %b_body_0_block_1_running_mean, %b_body_0_block_1_running_var, 0.1, 1e-05), kwargs = {})J€
+pkg.torch.onnx.name_scopesb['', 'body', 'body.0', 'body.0.block', 'body.0.block.1', '_native_batch_norm_legit_no_training_1']JÃ
+pkg.torch.onnx.stack_trace¤File "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/tmp/ipykernel_404/943492814.py", line 31, in forward
+    return self.block(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/batchnorm.py", line 210, in forward
+    return F.batch_norm(
+Ñ
+
+	getitem_3val_27node_Sigmoid_27"SigmoidJñ
+	namespaceã: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.0: __main__.DepthwiseSepConvBlock/body.0.block: torch.nn.modules.container.Sequential/body.0.block.2: torch.nn.modules.activation.SiLU/silu_1: aten.silu.defaultJã
+pkg.torch.onnx.class_hierarchyÀ['__main__.NASNet', 'torch.nn.modules.container.Sequential', '__main__.DepthwiseSepConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Jˆ
+pkg.torch.onnx.fx_noden%silu_1 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%getitem_3,), kwargs = {})J`
+pkg.torch.onnx.name_scopesB['', 'body', 'body.0', 'body.0.block', 'body.0.block.2', 'silu_1']JÚ
+pkg.torch.onnx.stack_trace»File "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/tmp/ipykernel_404/943492814.py", line 31, in forward
+    return self.block(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/activation.py", line 476, in forward
+    return F.silu(input, inplace=self.inplace)
+Ñ
+
+	getitem_3
+val_27silu_1node_silu_1"MulJñ
+	namespaceã: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.0: __main__.DepthwiseSepConvBlock/body.0.block: torch.nn.modules.container.Sequential/body.0.block.2: torch.nn.modules.activation.SiLU/silu_1: aten.silu.defaultJã
+pkg.torch.onnx.class_hierarchyÀ['__main__.NASNet', 'torch.nn.modules.container.Sequential', '__main__.DepthwiseSepConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Jˆ
+pkg.torch.onnx.fx_noden%silu_1 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%getitem_3,), kwargs = {})J`
+pkg.torch.onnx.name_scopesB['', 'body', 'body.0', 'body.0.block', 'body.0.block.2', 'silu_1']JÚ
+pkg.torch.onnx.stack_trace»File "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/tmp/ipykernel_404/943492814.py", line 31, in forward
+    return self.block(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/activation.py", line 476, in forward
+    return F.silu(input, inplace=self.inplace)
+ş
+silu_1
+body.0.block.3.weight
+body.0.block.3.weight_bias	getitem_6node_Conv_121"Conv*
+group *
+pads@ @ @ @  *
+auto_pad"NOTSET *
+strides@@ *
+	dilations@@ *
+kernel_shape@@ J·
+	namespace©: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.0: __main__.DepthwiseSepConvBlock/body.0.block: torch.nn.modules.container.Sequential/body.0.block.4: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_2: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJ‰
+pkg.torch.onnx.class_hierarchyæ['__main__.NASNet', 'torch.nn.modules.container.Sequential', '__main__.DepthwiseSepConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÄ
+pkg.torch.onnx.fx_node©%_native_batch_norm_legit_no_training_2 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_2, %p_body_0_block_4_weight, %p_body_0_block_4_bias, %b_body_0_block_4_running_mean, %b_body_0_block_4_running_var, 0.1, 1e-05), kwargs = {})J€
+pkg.torch.onnx.name_scopesb['', 'body', 'body.0', 'body.0.block', 'body.0.block.4', '_native_batch_norm_legit_no_training_2']JÃ
+pkg.torch.onnx.stack_trace¤File "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/tmp/ipykernel_404/943492814.py", line 31, in forward
+    return self.block(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/batchnorm.py", line 210, in forward
+    return F.batch_norm(
+Ñ
+
+	getitem_6val_39node_Sigmoid_39"SigmoidJñ
+	namespaceã: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.0: __main__.DepthwiseSepConvBlock/body.0.block: torch.nn.modules.container.Sequential/body.0.block.5: torch.nn.modules.activation.SiLU/silu_2: aten.silu.defaultJã
+pkg.torch.onnx.class_hierarchyÀ['__main__.NASNet', 'torch.nn.modules.container.Sequential', '__main__.DepthwiseSepConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Jˆ
+pkg.torch.onnx.fx_noden%silu_2 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%getitem_6,), kwargs = {})J`
+pkg.torch.onnx.name_scopesB['', 'body', 'body.0', 'body.0.block', 'body.0.block.5', 'silu_2']JÚ
+pkg.torch.onnx.stack_trace»File "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/tmp/ipykernel_404/943492814.py", line 31, in forward
+    return self.block(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/activation.py", line 476, in forward
+    return F.silu(input, inplace=self.inplace)
+Ñ
+
+	getitem_6
+val_39silu_2node_silu_2"MulJñ
+	namespaceã: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.0: __main__.DepthwiseSepConvBlock/body.0.block: torch.nn.modules.container.Sequential/body.0.block.5: torch.nn.modules.activation.SiLU/silu_2: aten.silu.defaultJã
+pkg.torch.onnx.class_hierarchyÀ['__main__.NASNet', 'torch.nn.modules.container.Sequential', '__main__.DepthwiseSepConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Jˆ
+pkg.torch.onnx.fx_noden%silu_2 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%getitem_6,), kwargs = {})J`
+pkg.torch.onnx.name_scopesB['', 'body', 'body.0', 'body.0.block', 'body.0.block.5', 'silu_2']JÚ
+pkg.torch.onnx.stack_trace»File "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/tmp/ipykernel_404/943492814.py", line 31, in forward
+    return self.block(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/activation.py", line 476, in forward
+    return F.silu(input, inplace=self.inplace)
+Ğ
+silu_2
+max_pool2dnode_max_pool2d"MaxPool*
+storage_order  *
+	dilations@@ *
+	ceil_mode  *
+pads@ @ @ @  *
+auto_pad"NOTSET *
+strides@@ *
+kernel_shape@@ Jš
+	namespaceŒ: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.1: torch.nn.modules.pooling.MaxPool2d/max_pool2d: aten.max_pool2d.defaultJŸ
+pkg.torch.onnx.class_hierarchy}['__main__.NASNet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.MaxPool2d', 'aten.max_pool2d.default']JŸ
+pkg.torch.onnx.fx_node„%max_pool2d : [num_users=1] = call_function[target=torch.ops.aten.max_pool2d.default](args = (%silu_2, [2, 2], [2, 2]), kwargs = {})JB
+pkg.torch.onnx.name_scopes$['', 'body', 'body.1', 'max_pool2d']Jë
+pkg.torch.onnx.stack_traceÌFile "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/pooling.py", line 224, in forward
+    return F.max_pool2d(
+‚
+
+max_pool2d
+body.2.block.0.weight
+body.2.block.0.weight_bias	getitem_9node_Conv_123"Conv*
+group@ *
+pads@@@@ *
+auto_pad"NOTSET *
+strides@@ *
+	dilations@@ *
+kernel_shape@@ J·
+	namespace©: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.2: __main__.DepthwiseSepConvBlock/body.2.block: torch.nn.modules.container.Sequential/body.2.block.1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_3: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJ‰
+pkg.torch.onnx.class_hierarchyæ['__main__.NASNet', 'torch.nn.modules.container.Sequential', '__main__.DepthwiseSepConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÄ
+pkg.torch.onnx.fx_node©%_native_batch_norm_legit_no_training_3 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_3, %p_body_2_block_1_weight, %p_body_2_block_1_bias, %b_body_2_block_1_running_mean, %b_body_2_block_1_running_var, 0.1, 1e-05), kwargs = {})J€
+pkg.torch.onnx.name_scopesb['', 'body', 'body.2', 'body.2.block', 'body.2.block.1', '_native_batch_norm_legit_no_training_3']JÃ
+pkg.torch.onnx.stack_trace¤File "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/tmp/ipykernel_404/943492814.py", line 31, in forward
+    return self.block(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/batchnorm.py", line 210, in forward
+    return F.batch_norm(
+Ñ
+
+	getitem_9val_52node_Sigmoid_51"SigmoidJñ
+	namespaceã: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.2: __main__.DepthwiseSepConvBlock/body.2.block: torch.nn.modules.container.Sequential/body.2.block.2: torch.nn.modules.activation.SiLU/silu_3: aten.silu.defaultJã
+pkg.torch.onnx.class_hierarchyÀ['__main__.NASNet', 'torch.nn.modules.container.Sequential', '__main__.DepthwiseSepConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Jˆ
+pkg.torch.onnx.fx_noden%silu_3 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%getitem_9,), kwargs = {})J`
+pkg.torch.onnx.name_scopesB['', 'body', 'body.2', 'body.2.block', 'body.2.block.2', 'silu_3']JÚ
+pkg.torch.onnx.stack_trace»File "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/tmp/ipykernel_404/943492814.py", line 31, in forward
+    return self.block(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/activation.py", line 476, in forward
+    return F.silu(input, inplace=self.inplace)
+Ñ
+
+	getitem_9
+val_52silu_3node_silu_3"MulJñ
+	namespaceã: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.2: __main__.DepthwiseSepConvBlock/body.2.block: torch.nn.modules.container.Sequential/body.2.block.2: torch.nn.modules.activation.SiLU/silu_3: aten.silu.defaultJã
+pkg.torch.onnx.class_hierarchyÀ['__main__.NASNet', 'torch.nn.modules.container.Sequential', '__main__.DepthwiseSepConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']Jˆ
+pkg.torch.onnx.fx_noden%silu_3 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%getitem_9,), kwargs = {})J`
+pkg.torch.onnx.name_scopesB['', 'body', 'body.2', 'body.2.block', 'body.2.block.2', 'silu_3']JÚ
+pkg.torch.onnx.stack_trace»File "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/tmp/ipykernel_404/943492814.py", line 31, in forward
+    return self.block(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/activation.py", line 476, in forward
+    return F.silu(input, inplace=self.inplace)
+ÿ
+silu_3
+body.2.block.3.weight
+body.2.block.3.weight_bias
+getitem_12node_Conv_125"Conv*
+group *
+pads@ @ @ @  *
+auto_pad"NOTSET *
+strides@@ *
+	dilations@@ *
+kernel_shape@@ J·
+	namespace©: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.2: __main__.DepthwiseSepConvBlock/body.2.block: torch.nn.modules.container.Sequential/body.2.block.4: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_4: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJ‰
+pkg.torch.onnx.class_hierarchyæ['__main__.NASNet', 'torch.nn.modules.container.Sequential', '__main__.DepthwiseSepConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÄ
+pkg.torch.onnx.fx_node©%_native_batch_norm_legit_no_training_4 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_4, %p_body_2_block_4_weight, %p_body_2_block_4_bias, %b_body_2_block_4_running_mean, %b_body_2_block_4_running_var, 0.1, 1e-05), kwargs = {})J€
+pkg.torch.onnx.name_scopesb['', 'body', 'body.2', 'body.2.block', 'body.2.block.4', '_native_batch_norm_legit_no_training_4']JÃ
+pkg.torch.onnx.stack_trace¤File "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/tmp/ipykernel_404/943492814.py", line 31, in forward
+    return self.block(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/batchnorm.py", line 210, in forward
+    return F.batch_norm(
+Ó
+
+
+getitem_12val_64node_Sigmoid_63"SigmoidJñ
+	namespaceã: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.2: __main__.DepthwiseSepConvBlock/body.2.block: torch.nn.modules.container.Sequential/body.2.block.5: torch.nn.modules.activation.SiLU/silu_4: aten.silu.defaultJã
+pkg.torch.onnx.class_hierarchyÀ['__main__.NASNet', 'torch.nn.modules.container.Sequential', '__main__.DepthwiseSepConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']J‰
+pkg.torch.onnx.fx_nodeo%silu_4 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%getitem_12,), kwargs = {})J`
+pkg.torch.onnx.name_scopesB['', 'body', 'body.2', 'body.2.block', 'body.2.block.5', 'silu_4']JÚ
+pkg.torch.onnx.stack_trace»File "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/tmp/ipykernel_404/943492814.py", line 31, in forward
+    return self.block(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/activation.py", line 476, in forward
+    return F.silu(input, inplace=self.inplace)
+Ó
+
+
+getitem_12
+val_64silu_4node_silu_4"MulJñ
+	namespaceã: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.2: __main__.DepthwiseSepConvBlock/body.2.block: torch.nn.modules.container.Sequential/body.2.block.5: torch.nn.modules.activation.SiLU/silu_4: aten.silu.defaultJã
+pkg.torch.onnx.class_hierarchyÀ['__main__.NASNet', 'torch.nn.modules.container.Sequential', '__main__.DepthwiseSepConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']J‰
+pkg.torch.onnx.fx_nodeo%silu_4 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%getitem_12,), kwargs = {})J`
+pkg.torch.onnx.name_scopesB['', 'body', 'body.2', 'body.2.block', 'body.2.block.5', 'silu_4']JÚ
+pkg.torch.onnx.stack_trace»File "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/tmp/ipykernel_404/943492814.py", line 31, in forward
+    return self.block(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/activation.py", line 476, in forward
+    return F.silu(input, inplace=self.inplace)
+Ú
+silu_4max_pool2d_1node_max_pool2d_1"MaxPool*
+storage_order  *
+	dilations@@ *
+	ceil_mode  *
+pads@ @ @ @  *
+auto_pad"NOTSET *
+strides@@ *
+kernel_shape@@ Jœ
+	namespace: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.3: torch.nn.modules.pooling.MaxPool2d/max_pool2d_1: aten.max_pool2d.defaultJŸ
+pkg.torch.onnx.class_hierarchy}['__main__.NASNet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.MaxPool2d', 'aten.max_pool2d.default']J¡
+pkg.torch.onnx.fx_node†%max_pool2d_1 : [num_users=1] = call_function[target=torch.ops.aten.max_pool2d.default](args = (%silu_4, [2, 2], [2, 2]), kwargs = {})JD
+pkg.torch.onnx.name_scopes&['', 'body', 'body.3', 'max_pool2d_1']Jë
+pkg.torch.onnx.stack_traceÌFile "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/pooling.py", line 224, in forward
+    return F.max_pool2d(
+†
+max_pool2d_1
+body.4.block.0.weight
+body.4.block.0.weight_bias
+getitem_15node_Conv_127"Conv*
+group€ *
+pads@@@@ *
+auto_pad"NOTSET *
+strides@@ *
+	dilations@@ *
+kernel_shape@@ J·
+	namespace©: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.4: __main__.DepthwiseSepConvBlock/body.4.block: torch.nn.modules.container.Sequential/body.4.block.1: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_5: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJ‰
+pkg.torch.onnx.class_hierarchyæ['__main__.NASNet', 'torch.nn.modules.container.Sequential', '__main__.DepthwiseSepConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÄ
+pkg.torch.onnx.fx_node©%_native_batch_norm_legit_no_training_5 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_5, %p_body_4_block_1_weight, %p_body_4_block_1_bias, %b_body_4_block_1_running_mean, %b_body_4_block_1_running_var, 0.1, 1e-05), kwargs = {})J€
+pkg.torch.onnx.name_scopesb['', 'body', 'body.4', 'body.4.block', 'body.4.block.1', '_native_batch_norm_legit_no_training_5']JÃ
+pkg.torch.onnx.stack_trace¤File "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/tmp/ipykernel_404/943492814.py", line 31, in forward
+    return self.block(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/batchnorm.py", line 210, in forward
+    return F.batch_norm(
+Ó
+
+
+getitem_15val_77node_Sigmoid_75"SigmoidJñ
+	namespaceã: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.4: __main__.DepthwiseSepConvBlock/body.4.block: torch.nn.modules.container.Sequential/body.4.block.2: torch.nn.modules.activation.SiLU/silu_5: aten.silu.defaultJã
+pkg.torch.onnx.class_hierarchyÀ['__main__.NASNet', 'torch.nn.modules.container.Sequential', '__main__.DepthwiseSepConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']J‰
+pkg.torch.onnx.fx_nodeo%silu_5 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%getitem_15,), kwargs = {})J`
+pkg.torch.onnx.name_scopesB['', 'body', 'body.4', 'body.4.block', 'body.4.block.2', 'silu_5']JÚ
+pkg.torch.onnx.stack_trace»File "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/tmp/ipykernel_404/943492814.py", line 31, in forward
+    return self.block(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/activation.py", line 476, in forward
+    return F.silu(input, inplace=self.inplace)
+Ó
+
+
+getitem_15
+val_77silu_5node_silu_5"MulJñ
+	namespaceã: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.4: __main__.DepthwiseSepConvBlock/body.4.block: torch.nn.modules.container.Sequential/body.4.block.2: torch.nn.modules.activation.SiLU/silu_5: aten.silu.defaultJã
+pkg.torch.onnx.class_hierarchyÀ['__main__.NASNet', 'torch.nn.modules.container.Sequential', '__main__.DepthwiseSepConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']J‰
+pkg.torch.onnx.fx_nodeo%silu_5 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%getitem_15,), kwargs = {})J`
+pkg.torch.onnx.name_scopesB['', 'body', 'body.4', 'body.4.block', 'body.4.block.2', 'silu_5']JÚ
+pkg.torch.onnx.stack_trace»File "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/tmp/ipykernel_404/943492814.py", line 31, in forward
+    return self.block(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/activation.py", line 476, in forward
+    return F.silu(input, inplace=self.inplace)
+ÿ
+silu_5
+body.4.block.3.weight
+body.4.block.3.weight_bias
+getitem_18node_Conv_129"Conv*
+group *
+pads@ @ @ @  *
+auto_pad"NOTSET *
+strides@@ *
+	dilations@@ *
+kernel_shape@@ J·
+	namespace©: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.4: __main__.DepthwiseSepConvBlock/body.4.block: torch.nn.modules.container.Sequential/body.4.block.4: torch.nn.modules.batchnorm.BatchNorm2d/_native_batch_norm_legit_no_training_6: aten._native_batch_norm_legit_no_training.defaultJV
+!pkg.onnxscript.rewriter.rule_name1FuseBatchNormIntoConv, RemoveOptionalBiasFromConvJ‰
+pkg.torch.onnx.class_hierarchyæ['__main__.NASNet', 'torch.nn.modules.container.Sequential', '__main__.DepthwiseSepConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.batchnorm.BatchNorm2d', 'aten._native_batch_norm_legit_no_training.default']JÄ
+pkg.torch.onnx.fx_node©%_native_batch_norm_legit_no_training_6 : [num_users=1] = call_function[target=torch.ops.aten._native_batch_norm_legit_no_training.default](args = (%conv2d_6, %p_body_4_block_4_weight, %p_body_4_block_4_bias, %b_body_4_block_4_running_mean, %b_body_4_block_4_running_var, 0.1, 1e-05), kwargs = {})J€
+pkg.torch.onnx.name_scopesb['', 'body', 'body.4', 'body.4.block', 'body.4.block.4', '_native_batch_norm_legit_no_training_6']JÃ
+pkg.torch.onnx.stack_trace¤File "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/tmp/ipykernel_404/943492814.py", line 31, in forward
+    return self.block(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/batchnorm.py", line 210, in forward
+    return F.batch_norm(
+Ó
+
+
+getitem_18val_89node_Sigmoid_87"SigmoidJñ
+	namespaceã: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.4: __main__.DepthwiseSepConvBlock/body.4.block: torch.nn.modules.container.Sequential/body.4.block.5: torch.nn.modules.activation.SiLU/silu_6: aten.silu.defaultJã
+pkg.torch.onnx.class_hierarchyÀ['__main__.NASNet', 'torch.nn.modules.container.Sequential', '__main__.DepthwiseSepConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']J‰
+pkg.torch.onnx.fx_nodeo%silu_6 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%getitem_18,), kwargs = {})J`
+pkg.torch.onnx.name_scopesB['', 'body', 'body.4', 'body.4.block', 'body.4.block.5', 'silu_6']JÚ
+pkg.torch.onnx.stack_trace»File "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/tmp/ipykernel_404/943492814.py", line 31, in forward
+    return self.block(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/activation.py", line 476, in forward
+    return F.silu(input, inplace=self.inplace)
+Ó
+
+
+getitem_18
+val_89silu_6node_silu_6"MulJñ
+	namespaceã: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.4: __main__.DepthwiseSepConvBlock/body.4.block: torch.nn.modules.container.Sequential/body.4.block.5: torch.nn.modules.activation.SiLU/silu_6: aten.silu.defaultJã
+pkg.torch.onnx.class_hierarchyÀ['__main__.NASNet', 'torch.nn.modules.container.Sequential', '__main__.DepthwiseSepConvBlock', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.activation.SiLU', 'aten.silu.default']J‰
+pkg.torch.onnx.fx_nodeo%silu_6 : [num_users=1] = call_function[target=torch.ops.aten.silu.default](args = (%getitem_18,), kwargs = {})J`
+pkg.torch.onnx.name_scopesB['', 'body', 'body.4', 'body.4.block', 'body.4.block.5', 'silu_6']JÚ
+pkg.torch.onnx.stack_trace»File "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/tmp/ipykernel_404/943492814.py", line 31, in forward
+    return self.block(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/activation.py", line 476, in forward
+    return F.silu(input, inplace=self.inplace)
+Ú
+silu_6max_pool2d_2node_max_pool2d_2"MaxPool*
+storage_order  *
+	dilations@@ *
+	ceil_mode  *
+pads@ @ @ @  *
+auto_pad"NOTSET *
+strides@@ *
+kernel_shape@@ Jœ
+	namespace: __main__.NASNet/body: torch.nn.modules.container.Sequential/body.5: torch.nn.modules.pooling.MaxPool2d/max_pool2d_2: aten.max_pool2d.defaultJŸ
+pkg.torch.onnx.class_hierarchy}['__main__.NASNet', 'torch.nn.modules.container.Sequential', 'torch.nn.modules.pooling.MaxPool2d', 'aten.max_pool2d.default']J¡
+pkg.torch.onnx.fx_node†%max_pool2d_2 : [num_users=1] = call_function[target=torch.ops.aten.max_pool2d.default](args = (%silu_6, [2, 2], [2, 2]), kwargs = {})JD
+pkg.torch.onnx.name_scopes&['', 'body', 'body.5', 'max_pool2d_2']Jë
+pkg.torch.onnx.stack_traceÌFile "/tmp/ipykernel_404/943492814.py", line 103, in forward
+    x = self.body(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/container.py", line 259, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/pooling.py", line 224, in forward
+    return F.max_pool2d(
+£
+max_pool2d_2
+val_93mean	node_mean"
+ReduceMean*
+noop_with_empty_axes  *
+keepdims Jc
+	namespaceV: __main__.NASNet/pool: torch.nn.modules.pooling.AdaptiveAvgPool2d/mean: aten.mean.dimJt
+pkg.torch.onnx.class_hierarchyR['__main__.NASNet', 'torch.nn.modules.pooling.AdaptiveAvgPool2d', 'aten.mean.dim']J”
+pkg.torch.onnx.fx_nodez%mean : [num_users=1] = call_function[target=torch.ops.aten.mean.dim](args = (%max_pool2d_2, [-1, -2], True), kwargs = {})J2
+pkg.torch.onnx.name_scopes['', 'pool', 'mean']J™
+pkg.torch.onnx.stack_traceúFile "/tmp/ipykernel_404/943492814.py", line 104, in forward
+    x = self.pool(x).flatten(1)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/pooling.py", line 1514, in forward
+    return F.adaptive_avg_pool2d(input, self.output_size)
+Æ
+mean
+val_98viewnode_Reshape_132"Reshape*
+	allowzero J6
+	namespace): __main__.NASNet/view: aten.view.defaultJ<
+!pkg.onnxscript.rewriter.rule_nameMaterializeReshapeShapeJJ
+pkg.torch.onnx.class_hierarchy(['__main__.NASNet', 'aten.view.default']J˜
+pkg.torch.onnx.fx_node~%view : [num_users=1] = call_function[target=torch.ops.aten.view.default](args = (%mean, [%sym_size_int_1, 256]), kwargs = {})J*
+pkg.torch.onnx.name_scopes['', 'view']Jz
+pkg.torch.onnx.stack_trace\File "/tmp/ipykernel_404/943492814.py", line 104, in forward
+    x = self.pool(x).flatten(1)
+¢
+view
+	fc.weight
+fc.biasoutputnode_linear"Gemm*
+beta  €? *
+transB *
+alpha  €? *
+transA  J]
+	namespaceP: __main__.NASNet/fc: torch.nn.modules.linear.Linear/linear: aten.linear.defaultJn
+pkg.torch.onnx.class_hierarchyL['__main__.NASNet', 'torch.nn.modules.linear.Linear', 'aten.linear.default']JŸ
+pkg.torch.onnx.fx_node„%linear : [num_users=1] = call_function[target=torch.ops.aten.linear.default](args = (%view, %p_fc_weight, %p_fc_bias), kwargs = {})J2
+pkg.torch.onnx.name_scopes['', 'fc', 'linear']J†
+pkg.torch.onnx.stack_traceçFile "/tmp/ipykernel_404/943492814.py", line 106, in forward
+    return self.fc(x)
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+main_graph*m@Bbody.0.block.0.weightj+
+locationnas_candidate_trial_0.onnx.dataj
+offset0j
+length2304p*p@Bbody.2.block.0.weightj+
+locationnas_candidate_trial_0.onnx.dataj
+offset2304j
+length2304p*7
+Bfc.biasJ(1e½¥½63Ñ<ë¨<=ú×=ë–¥»ÁA<~®Q=ØKŞ<),A¼*h@Bstem.0.weightj+
+locationnas_candidate_trial_0.onnx.dataj
+offset4608j
+length6912p*r@@Bbody.0.block.3.weightj+
+locationnas_candidate_trial_0.onnx.dataj
+offset11520j
+length16384p*s€@Bbody.2.block.3.weightj+
+locationnas_candidate_trial_0.onnx.dataj
+offset27904j
+length32768p*r€Bbody.4.block.0.weightj+
+locationnas_candidate_trial_0.onnx.dataj
+offset60672j
+length4608p*u€€Bbody.4.block.3.weightj+
+locationnas_candidate_trial_0.onnx.dataj
+offset65280j
+length131072p*d
+€B	fc.weightj+
+locationnas_candidate_trial_0.onnx.dataj
+offset196352j
+length10240p*Bval_93Jÿÿÿÿÿÿÿÿşÿÿÿÿÿÿÿ*›@Bstem.0.weight_biasJ€NM>½€¯v½tSx;zõ>¶õ…¾h=*>‹AÙ=ø°&¾ßW#>SÇŒ½ßŸO>jrÌ;™k	¾q<‹>ìëw>_NV>p¾½ƒºš=$û~>A²·=p9P>³íz¾ÁV>ùì>ô˜½¨ôÖ<Ì	¾b@f>¾ªÌ½2Ù ½Êz>*”r¾@ıŒ½é¾î¼€çs>ˆÜn>fQ¾ìï™½çİ›¾8k’>˜A|>–­<€2:ÖÜ¾P&Š¼lºŒ¾ÌpE=6,¾/Ğ|>a'‡>€‹½Òm=x'„½6k>8ñ½)A¾[oR¾ufŒ> ¢ƒ¾XÊ}½ zZ>a˜¾3(ß»*£@Bbody.0.block.0.weight_biasJ€^Ú¢¾`æÜ>­ãG>(FŠ¾½¾µlá>ÿ·½Û>
+œ=¬NO¾Bµ4>$¾.´Á>^5è>ğY×¾v°†<†iT½îÚ%¾ş7º¾Y:}¾òíÀ>_¬Æ>–-¾uD(>D0ã¾ã±¾Ş
+>.öN>6X>*UÂ=Şâ=³d»¾9£¾y=‡½$š¾>9³Æ¾ ı˜=_R¾Ks¬>÷%>;Sñ<©­½½?=>Ó><@¶=*è½º_»>­Ñ>`Ï¾v—¾¥M¯¾–Õ>ûõ©¾¸9Ò>‚¼Â¾›“Ù¾Õ}ä¾›ş¾j®8=wIÁ>í†¾£¾µº?î'x>*£@Bbody.0.block.3.weight_biasJ€z«"¿JV¹¾,â?BtL<Çô¡>º@>De.?X¤¼îe>Cœ˜½\Ù?î]"?şvü=Äw¾Lì6?÷¾A?„%?ñÙµ>|
+®>ş?ºÚƒ?Å£>6;¼G2 ¾r(b=––Ş=	>À©½Ëş>jöô=¢e1>§èé>´ÿk>Î‰=Êö=.Ñ¦>‚xÚ=ùªø¾Á/0¾ùëö½f¿ş½°Ê&>?•ª½dü>{Á	?<úp¼Êë¼=ÀTİ»=yÕ>Ë¡>÷J˜>Øü¾Ù‡Ú=§2>‡ç>ªÎ<24C¾ôÊ>è®½³Ì¾÷^œ¾FVœ¾ì«&=*£@Bbody.2.block.0.weight_biasJ€Íx¿–“Ù¾ß*¿Ò´ù¾7%E¿#¾8? ùà¾¨ÃO¿H($?Œ}¿ï»>ÍÆÂ=[>Ë¹¿›¦N¿Á¿LŞ¿7Ä¾„?†ã÷>YV‰?Úqj¿<s?Ç¿•3¿KŞ…?Š*Ğ¾ºt/?ù¿_¾a?šÿ ?—¯€¾ä¢"¿Uâ-¿C—”=İ>?™>ı/?P	R?|X¾¢Ÿ?”
+?$±G¿N©>~€Ó¾]Á¶>õŸ¿{0¿ã¼?	‚ö>º;Š¿¦Î?Y ?>Ùº>˜Wâ=äH¿\!¿åP=uK¿>ëğG>ft9?Y|¾øÌ²¼rÙ¿*q€Bbody.2.block.3.weight_biasj+
+locationnas_candidate_trial_0.onnx.dataj
+offset206592j
+length512p*q€Bbody.4.block.0.weight_biasj+
+locationnas_candidate_trial_0.onnx.dataj
+offset207104j
+length512p*r€Bbody.4.block.3.weight_biasj+
+locationnas_candidate_trial_0.onnx.dataj
+offset207616j
+length1024p*Bval_98Jÿÿÿÿÿÿÿÿ       ZÏ
+input 
+
+
+batch_size
+
+
+"=
+/pkg.torch.export.graph_signature.InputSpec.kind
+USER_INPUT"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"&
+!pkg.torch.onnx.original_node_namexb
+output
+
+
+batch_size
+
+"?
+0pkg.torch.export.graph_signature.OutputSpec.kindUSER_OUTPUT"+
+!pkg.torch.onnx.original_node_namelinearj/
+body.0.block.0.weight
+
+@
+
+
+j/
+body.2.block.0.weight
+
+@
+
+
+jÂ
+fc.bias
+
+
+
+"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone".
+!pkg.torch.onnx.original_node_name	p_fc_biasj'
+stem.0.weight
+
+@
+
+
+j/
+body.0.block.3.weight
+
+@
+@
+
+j0
+body.2.block.3.weight
+
+€
+@
+
+j0
+body.4.block.0.weight
+
+€
+
+
+j1
+body.4.block.3.weight
+
+€
+€
+
+jË
+	fc.weight
+	
+
+
+€"<
+/pkg.torch.export.graph_signature.InputSpec.kind	PARAMETER"=
+5pkg.torch.export.graph_signature.InputSpec.persistentNone"0
+!pkg.torch.onnx.original_node_namep_fc_weightjR
+val_93
+
+
+"<
+$pkg.onnxscript.optimizer.folded_from['val_91', 'val_92']j 
+stem.0.weight_bias
+
+
+@j(
+body.0.block.0.weight_bias
+
+
+@j(
+body.0.block.3.weight_bias
+
+
+@j(
+body.2.block.0.weight_bias
+
+
+@j)
+body.2.block.3.weight_bias
+	
+€j)
+body.4.block.0.weight_bias
+	
+€j)
+body.4.block.3.weight_bias
+	
+€j
+val_98
+
+
+j+
+getitem 
+
+
+batch_size
+@
+
+j*
+val_15 
+
+
+batch_size
+@
+
+j(
+silu 
+
+
+batch_size
+@
+
+j-
+	getitem_3 
+
+
+batch_size
+@
+
+j*
+val_27 
+
+
+batch_size
+@
+
+j*
+silu_1 
+
+
+batch_size
+@
+
+j-
+	getitem_6 
+
+
+batch_size
+@
+
+j*
+val_39 
+
+
+batch_size
+@
+
+j*
+silu_2 
+
+
+batch_size
+@
+
+j.
+
+max_pool2d 
+
+
+batch_size
+@
+
+j-
+	getitem_9 
+
+
+batch_size
+@
+
+j*
+val_52 
+
+
+batch_size
+@
+
+j*
+silu_3 
+
+
+batch_size
+@
+
+j/
+
+getitem_12!
+
+
+batch_size
+€
+
+j+
+val_64!
+
+
+batch_size
+€
+
+j+
+silu_4!
+
+
+batch_size
+€
+
+j1
+max_pool2d_1!
+
+
+batch_size
+€
+
+j/
+
+getitem_15!
+
+
+batch_size
+€
+
+j+
+val_77!
+
+
+batch_size
+€
+
+j+
+silu_5!
+
+
+batch_size
+€
+
+j/
+
+getitem_18!
+
+
+batch_size
+€
+
+j+
+val_89!
+
+
+batch_size
+€
+
+j+
+silu_6!
+
+
+batch_size
+€
+
+j1
+max_pool2d_2!
+
+
+batch_size
+€
+
+j)
+mean!
+
+
+batch_size
+€
+
+j!
+view
+
+
+batch_size
+€‚õ
+0pkg.torch.export.ExportedProgram.graph_signatureÀ
+# inputs
+p_stem_0_weight: PARAMETER target='stem.0.weight'
+p_stem_1_weight: PARAMETER target='stem.1.weight'
+p_stem_1_bias: PARAMETER target='stem.1.bias'
+p_body_0_block_0_weight: PARAMETER target='body.0.block.0.weight'
+p_body_0_block_1_weight: PARAMETER target='body.0.block.1.weight'
+p_body_0_block_1_bias: PARAMETER target='body.0.block.1.bias'
+p_body_0_block_3_weight: PARAMETER target='body.0.block.3.weight'
+p_body_0_block_4_weight: PARAMETER target='body.0.block.4.weight'
+p_body_0_block_4_bias: PARAMETER target='body.0.block.4.bias'
+p_body_2_block_0_weight: PARAMETER target='body.2.block.0.weight'
+p_body_2_block_1_weight: PARAMETER target='body.2.block.1.weight'
+p_body_2_block_1_bias: PARAMETER target='body.2.block.1.bias'
+p_body_2_block_3_weight: PARAMETER target='body.2.block.3.weight'
+p_body_2_block_4_weight: PARAMETER target='body.2.block.4.weight'
+p_body_2_block_4_bias: PARAMETER target='body.2.block.4.bias'
+p_body_4_block_0_weight: PARAMETER target='body.4.block.0.weight'
+p_body_4_block_1_weight: PARAMETER target='body.4.block.1.weight'
+p_body_4_block_1_bias: PARAMETER target='body.4.block.1.bias'
+p_body_4_block_3_weight: PARAMETER target='body.4.block.3.weight'
+p_body_4_block_4_weight: PARAMETER target='body.4.block.4.weight'
+p_body_4_block_4_bias: PARAMETER target='body.4.block.4.bias'
+p_fc_weight: PARAMETER target='fc.weight'
+p_fc_bias: PARAMETER target='fc.bias'
+b_stem_1_running_mean: BUFFER target='stem.1.running_mean' persistent=True
+b_stem_1_running_var: BUFFER target='stem.1.running_var' persistent=True
+b_stem_1_num_batches_tracked: BUFFER target='stem.1.num_batches_tracked' persistent=True
+b_body_0_block_1_running_mean: BUFFER target='body.0.block.1.running_mean' persistent=True
+b_body_0_block_1_running_var: BUFFER target='body.0.block.1.running_var' persistent=True
+b_body_0_block_1_num_batches_tracked: BUFFER target='body.0.block.1.num_batches_tracked' persistent=True
+b_body_0_block_4_running_mean: BUFFER target='body.0.block.4.running_mean' persistent=True
+b_body_0_block_4_running_var: BUFFER target='body.0.block.4.running_var' persistent=True
+b_body_0_block_4_num_batches_tracked: BUFFER target='body.0.block.4.num_batches_tracked' persistent=True
+b_body_2_block_1_running_mean: BUFFER target='body.2.block.1.running_mean' persistent=True
+b_body_2_block_1_running_var: BUFFER target='body.2.block.1.running_var' persistent=True
+b_body_2_block_1_num_batches_tracked: BUFFER target='body.2.block.1.num_batches_tracked' persistent=True
+b_body_2_block_4_running_mean: BUFFER target='body.2.block.4.running_mean' persistent=True
+b_body_2_block_4_running_var: BUFFER target='body.2.block.4.running_var' persistent=True
+b_body_2_block_4_num_batches_tracked: BUFFER target='body.2.block.4.num_batches_tracked' persistent=True
+b_body_4_block_1_running_mean: BUFFER target='body.4.block.1.running_mean' persistent=True
+b_body_4_block_1_running_var: BUFFER target='body.4.block.1.running_var' persistent=True
+b_body_4_block_1_num_batches_tracked: BUFFER target='body.4.block.1.num_batches_tracked' persistent=True
+b_body_4_block_4_running_mean: BUFFER target='body.4.block.4.running_mean' persistent=True
+b_body_4_block_4_running_var: BUFFER target='body.4.block.4.running_var' persistent=True
+b_body_4_block_4_num_batches_tracked: BUFFER target='body.4.block.4.num_batches_tracked' persistent=True
+x: USER_INPUT
+
+# outputs
+linear: USER_OUTPUT
+‚J
+2pkg.torch.export.ExportedProgram.range_constraints{s77: VR[0, int_oo]}B
+ 

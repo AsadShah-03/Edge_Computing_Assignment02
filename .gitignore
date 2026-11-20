@@ -14,21 +14,8 @@ env/
 .env/
 .venv/
 
-# Model checkpoints (large binary files)
-checkpoints/
-*.pth
-*.pt
-*.bin
-
-# ONNX models (large binary files)
-onnx_models/
-*.onnx
-
-# Dataset cache
+# Dataset cache (do not commit raw datasets)
 data/
-
-# Results (generated at runtime)
-results/
 
 # OS files
 .DS_Store

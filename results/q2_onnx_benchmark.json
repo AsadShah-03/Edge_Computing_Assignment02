@@ -1,0 +1,8 @@
+{
+  "Model": "NAS Best Model",
+  "Config": "{'num_layers': 5, 'channels': 96, 'kernel_sizes': 3, 'use_depthwise': False, 'activation': 'silu', 'input_resolution': 24}",
+  "Test Accuracy (%)": 91.57,
+  "ONNX Size (MB)": 0.04,
+  "CPU Latency (ms)": 2.106,
+  "Feasible": true
+}
