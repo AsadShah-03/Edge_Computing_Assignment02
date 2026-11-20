@@ -1,0 +1,45 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+env/
+.env/
+.venv/
+
+# Model checkpoints (large binary files)
+checkpoints/
+*.pth
+*.pt
+*.bin
+
+# ONNX models (large binary files)
+onnx_models/
+*.onnx
+
+# Dataset cache
+data/
+
+# Results (generated at runtime)
+results/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
